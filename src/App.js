@@ -1,24 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './components/pages/Home';
+import Navbar from './components/inc/Navbar';
+import About from './components/pages/About'
+import Contact from './components/pages/Contact';
+import { Routes, Route, Link } from "react-router-dom";
+import Alert from './components/pages/Alert';
+import Footer from './components/inc/Footer';
+
+
+
 
 function App() {
+
+  // const [alert, setAlert] = useState(null);
+
+  // const showAlert = (message, type)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      
+      <Navbar />
+      <Alert />
+      
+      <Routes>
+         <Route exact path="/" element={<Home />} />
+         <Route path="/contact" element={<Contact />} />
+         <Route path="/about" element={<About />} />
+          
+      </Routes>
+      <Footer />
+      
+    </>
   );
 }
 
